@@ -5,7 +5,11 @@ def fcopy(original, copy):
            copyfile.write(line)
 
 #problem 4.28
-
+def links(filename):
+    infile = open(filename, 'r')
+    content = infile.read()
+    infile.close
+    return content.count('</a>')
 
 #problem 4.29
 def stats(filename):
@@ -38,6 +42,7 @@ def duplicates(filename):
 if __name__ == '__main__':
     fcopy('C:/Users/sanja/PycharmProjects/chapter3/example.txt', 'C:/Users/sanja/PycharmProjects/chapter3/output.txt')
     open('C:/Users/sanja/PycharmProjects/chapter3/output.txt').read()
+    print(links('C:/Users/sanja/PycharmProjects/chapter3/html.txt'))
     stats('C:/Users/sanja/PycharmProjects/chapter3/example.txt')
     print(duplicates('C:/Users/sanja/PycharmProjects/chapter3/duplicates.txt'))
     print(duplicates('C:/Users/sanja/PycharmProjects/chapter3/noduplicates.txt'))

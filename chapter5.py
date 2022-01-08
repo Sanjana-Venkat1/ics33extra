@@ -2,11 +2,12 @@ import math
 
 #problem 5.40
 def approxPi(errorval):
-    pi = math.pi
+    pi = 1
     divider = 1
     pireturn = 0
     counter = 0
     while abs(pi - pireturn) > errorval:
+        pi = pireturn
         if counter % 2 == 0:
             pireturn += 4/divider
         else:
@@ -57,6 +58,7 @@ def sublist(list1, list2):
 
 
 if __name__ == '__main__':
+    print(approxPi(0.01))
     print(approxPi(0.0000001))
     print(poly([1, 2, 1], 2))
     print(poly([1, 0, 1, 0, 1], 2))
