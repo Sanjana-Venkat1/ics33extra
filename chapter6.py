@@ -9,6 +9,21 @@ def reverse(phonebook):
     return sorteddict
 
 #problem 6.21
+def ticker(filename):
+    keys = []
+    values = []
+    holderdict = {}
+    with open(filename) as infile:
+        holderlist = [line.rstrip() for line in infile]
+        for line in range (0, len(holderlist), 2):
+            keys.append(holderlist[line])
+        for line in range (1, len(holderlist), 2):
+            values.append(holderlist[line])
+    holderdict = dict(zip(keys, values))
+    userinput = input("Enter Company name: ")
+    for key, value in holderdict.items():
+        if key == userinput:
+            print('Ticker symbol: ' + str(value))
 
 
 #problem 6.25
@@ -36,6 +51,7 @@ def index(filename, wordlist):
 if __name__ == '__main__':
     phonebook = {'Smith, Jane': '123-45-67', 'Doe, John': '987-65-43', 'Baker,David': '567-89-01'}
     print(reverse(phonebook))
+    ticker('nasdaq.txt')
     print(different([[1,0,1], [0,1,0]]))
     print(different([[32, 12, 52, 63], [32, 64, 67, 52], [64, 64, 17, 34], [34, 17, 76, 98]]))
     index('raven.txt', ['raven', 'test'])
